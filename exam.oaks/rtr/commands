@@ -1,0 +1,30 @@
+cd /etc/net/ifaces
+cp -r ens3{3,4}
+cp -r ens3{3,7}
+
+vim /etc/net/ifaces/ens33/options
+    *BOOTPROTO=dhcp
+
+echo "172.16.10.1/24" > ens34/ipv4address
+echo "192.168.100.1/24" > ens37/ipv4address
+
+systemctl restart network
+
+iptables -X 
+iptables -F 
+iptables -t nat -X 
+iptables -t nat -F 
+iptables -t mangle -X 
+iptables -t mangle -F 
+iptables -t nat -A POSTROUTING -o ens33 -s 172.16.10.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o ens33 -s 192.168.100.0/24 -j MASQUERADE
+iptables-save > /etc/sysconfig/iptables 
+
+apt-get update && apt-get install rsyslog dhcp-server -y 
+cp /home/exam.oaks/exam.oaks/rtr/dhcpd.conf /etc/dhcp/dhcpd.conf
+vim /etc/dhcp/dhcpd.conf
+    *MAC_ADDRESS
+
+systemctl enable dhcpd
+systemctl status dhcpd
+systemctl restart network

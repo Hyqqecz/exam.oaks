@@ -1,0 +1,19 @@
+apt-get update
+apt-get install git
+cd /home
+apt-get clone https://github.com/Hyqqecz/exam.oaks
+
+vim /exam.oaks/exam.oaks/rtr/commands
+vim /exam.oaks/exam.oaks/srv-1/commands
+vim /exam.oaks/exam.oaks/srv-2/commands
+
+-> "*" - write file
+
+
+2 vmnetwork:
+SRV-1 - RTR 172.16.10.0/24
+SRV-2 - RTR 192.168.100.0/24
+
+hostnamectl set-hostname xxx.exam.oaks
+vim /etc/sysconfig/network
+    *HOSTNAME=xxx.exam.oaks

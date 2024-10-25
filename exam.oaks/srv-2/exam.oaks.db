@@ -1,0 +1,20 @@
+$TTL    1D
+@   1N  SOA     exam.oaks. root.exam.oaks. (
+                    1   ; serial
+                    12H ; refresh
+                    1H  ; retry
+                    1W  ; expire
+                    1H  ; ncache
+                )
+                        IN      NS          exam.oaks.
+                        IN      A           127.0.0.0
+rtr                     IN      A           172.16.10.1
+rtr                     IN      A           192.168.100.1
+srv-1                   IN      A           172.16.10.2
+srv-2                   IN      A           192.168.100.2
+pm                      IN      CNAME       srv-2.exam.oaks.
+mail                    IN      CNAME       srv-1.exam.oaks.
+zabbix                  IN      CNAME       srv-2.exam.oaks.
+@                       IN      MX 10       mail.exam.oaks.
+_zabbix._tcp.exam.oaks  IN      SRV 10 5 80 zabbix.exam.oaks.
+

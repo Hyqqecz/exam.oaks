@@ -1,0 +1,31 @@
+vim /etc/net/ifaces/ens33/options
+    *BOOTPROTO=dhcp
+systemctl restart network
+
+apt-get update && apt-get install rsyslog bind -y
+
+vim /etc/bind/options.conf
+    *listen-on { 127.0.0.1; 192.168.100.2;};
+    *listen-on-v6 { none; };
+    *forwarders { 77.88.8.8; 8.8.8.8; };
+    *allow-query { 192.168.100.0/24; 172.16.10.0/24;};
+    *allow-transfer { 172.16.10.2; };
+
+cp /home/exam.oaks/local.conf /etc/bind/local.conf
+
+cd /etc/bind/zone
+cp /home/exam.oaks/exam.oaks/srv-2/exam.oaks.db exam.oaks.db
+cp /home/exam.oaks/exam.oaks/srv-2/10.16.172.in-addr-arpa.db 10.16.172.in-addr-arpa.db
+cp /home/exam.oaks/exam.oaks/srv-2/10.168.192.in-addr-arpa.db 10.168.192.in-addr-arpa.db
+
+chown root:named 10.16.172.in-addr.arpa.db 100.168.192.in-addr.arpa.db exam.oaks.db
+
+systemtl enable bind service --now
+
+***go to RTR delete 77.88.8.8 in /etc/dhcp/dhcpd.conf
+*RTR* systemctl restart dhcpd
+*RTR* systemctl restart network
+
+systemctl restart network
+systemctl restart bind
+systemct restart network

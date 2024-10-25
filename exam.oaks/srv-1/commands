@@ -1,0 +1,17 @@
+vim /etc/net/ifaces/ens33/options
+    *BOOTPROTO=dhcp
+systemctl restart network
+
+apt-get update && apt-get install rsyslog bind -y
+
+vim /etc/bind/options.conf
+    *listen-on { 127.0.0.1; 172.16.10.2;};
+    *listen-on-v6 { none; };
+    *forwarders { 77.88.8.8; 8.8.8.8; };
+    *allow-query { 172.16.10.0/24; 192.168.100.0/24;};
+    *allow-transfer { none; };
+
+cp /home/exam.oaks/exam.oaks/srv-1/local.conf /etc/bind/local.conf
+
+control bind-slave enabled
+systemctl enable bind.service --now

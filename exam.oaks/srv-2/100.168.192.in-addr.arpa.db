@@ -1,0 +1,11 @@
+$TTL    1D
+@   1N  SOA     exam.oaks. root.exam.oaks. (
+                    3   ; serial
+                    12H ; refresh
+                    1H  ; retry
+                    1W  ; expire
+                    1H  ; ncache
+                )
+        IN  NS      exam.oaks.
+1       IN  PTR     rtr.exam.oaks.
+2       IN  PTR     srv-2.exam.oaks.
