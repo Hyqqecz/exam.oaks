@@ -9,6 +9,7 @@ vim /exam.oaks/exam.oaks/srv-2/commands
 
 -> "*" - write file
 
+/etc/dhcp/dhcpd.conf ///MAC_ADDRESS//
 
 2 vmnetwork:
 SRV-1 - RTR 172.16.10.0/24
