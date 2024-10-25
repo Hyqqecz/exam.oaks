@@ -1,7 +1,7 @@
 apt-get update
 apt-get install git
 cd /home
-apt-get clone https://github.com/Hyqqecz/exam.oaks
+git clone https://github.com/Hyqqecz/exam.oaks
 
 vim /exam.oaks/exam.oaks/rtr/commands
 vim /exam.oaks/exam.oaks/srv-1/commands
