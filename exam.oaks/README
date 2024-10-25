@@ -7,7 +7,7 @@ vim /exam.oaks/exam.oaks/rtr/commands
 vim /exam.oaks/exam.oaks/srv-1/commands
 vim /exam.oaks/exam.oaks/srv-2/commands
 
--> "*" - write file
+-> "*" - rewrite file
 
 /etc/dhcp/dhcpd.conf ///MAC_ADDRESS//
 
