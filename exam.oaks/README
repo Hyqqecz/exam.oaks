@@ -6,7 +6,8 @@ git clone https://github.com/Hyqqecz/exam.oaks
 vim /exam.oaks/exam.oaks/rtr/commands
 vim /exam.oaks/exam.oaks/srv-1/commands
 vim /exam.oaks/exam.oaks/srv-2/commands
-im /exam.oaks/exam.oaks/rsyslog/commands
+
+vim /exam.oaks/exam.oaks/rsyslog/commands
 
 -> "*" - rewrite file
 
