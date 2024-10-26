@@ -1,5 +1,5 @@
 $TTL    1D
-@   1N  SOA     exam.oaks. root.exam.oaks. (
+@   IN  SOA     exam.oaks. root.exam.oaks. (
                     1   ; serial
                     12H ; refresh
                     1H  ; retry
