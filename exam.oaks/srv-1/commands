@@ -1,5 +1,5 @@
 vim /etc/net/ifaces/ens33/options
-    *BOOTPROTO=dhcp
+    *BOOTPROTO=static
 systemctl restart network
 
 apt-get update && apt-get install rsyslog bind -y
