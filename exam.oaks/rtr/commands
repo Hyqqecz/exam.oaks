@@ -28,3 +28,14 @@ vim /etc/dhcp/dhcpd.conf
 systemctl enable dhcpd
 systemctl status dhcpd
 systemctl restart network
+
+
+systemctl enable rsyslog --now
+
+cp /home/exam.oaks/exam.oaks/rtr/rsyslog.conf /etc/rsyslog.conf
+
+systemctl restart rsyslog
+
+logger -p err "proverka 228 1488 hi hitler"
+
+vim /var/log/errors.log
