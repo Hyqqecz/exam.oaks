@@ -29,3 +29,11 @@ systemtl enable bind service --now
 systemctl restart network
 systemctl restart bind
 systemct restart network
+
+systemctl enable rsyslog --now
+
+cp /home/exam.oaks/exam.oaks/srv-2/rsyslog.conf /etc/rsyslog.conf
+systemctl restart rsyslog
+
+logger -p err "proverka 228 1488 hi hitler"
+***check *RTR* /var/log/errors.log***
