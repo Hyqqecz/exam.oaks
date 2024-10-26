@@ -15,3 +15,7 @@ cp /home/exam.oaks/exam.oaks/srv-1/local.conf /etc/bind/local.conf
 
 control bind-slave enabled
 systemctl enable bind.service --now
+
+systemctl enable rsyslog --now
+cp /home/exam.oaks/exam.oaks/srv-1/rsyslog.conf /etc/rsyslog.conf
+systemctl restart rsyslog
